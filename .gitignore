@@ -1,0 +1,4 @@
+/mecanex/node_modules
+node_modules/
+./mecanex/node_modules/.cache
+node_modules/.cache/
