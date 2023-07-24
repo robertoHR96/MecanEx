@@ -70,6 +70,27 @@ export const Game = () => {
     iniciarContador();
   }, []);
 
+  const [claseTablero, setClaseTablero] = useState("tablero-inicio");
+
+  const siguienteJuego = () => {
+    if (finGame) {
+      detenerContador();
+      setContador(0);
+      setCorriendo(false);
+      setClaseTablero("tablero-fin")
+      setTimeout(() => {
+        setTexto("Este es el segundo juego, ahora solo vale para pruebas pero en un futuro... será el mejor juego del mundo.");
+        setInputText("");
+        setPmi(0);
+        setFinGame(false);
+        // En el montaje del componente, enfocamos el input automáticamente
+        inputRef.current.focus();
+        // Iniciamo el contador de tiempo, para calcular la velocidad de escritura
+        setClaseTablero("tablero-inicio")
+      }, 365);
+    }
+  }
+
   return (
     <div className='game'>
       <div className='centrador'>
@@ -77,8 +98,8 @@ export const Game = () => {
           MecaNex
         </div>
       </div>
-      <div className='contador-palabras-por-minuto'>Palabras por minuto: <b>{pmi.toString()}</b></div>
-      <div className='tablero'>
+      <div className='contador-palabras-por-minuto '>Palabras por minuto: <b>{pmi.toString()}</b></div>
+      <div className={'tablero ' + claseTablero}>
         {
           Texto.split(/(?!^)/)
             .map(item => (item.trim() === '' ? ' ' : item))
@@ -102,7 +123,7 @@ export const Game = () => {
       </div>
       <div className='botones-navegacion-game'>
         <div className='boton boton-anterior'>Atras</div>
-        <div className='boton boton-siguiente'>Siguiente</div>
+        <div className='boton boton-siguiente' onClick={() => siguienteJuego()}>Siguiente</div>
       </div>
       <div className='modal-finGame'>
         {

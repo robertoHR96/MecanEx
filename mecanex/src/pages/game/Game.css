@@ -16,6 +16,34 @@
     padding: 0px 70px;
 }
 
+.tablero-fin{
+    animation-name: transicion-in;
+    animation-duration: 750ms;
+}
+@keyframes transicion-in {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.tablero-inicio{
+    animation-name: transicion-out;
+    animation-duration: 750ms;
+}
+
+@keyframes transicion-out {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
 .centrador {
     display: grid;
     place-content: center;
