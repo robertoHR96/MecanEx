@@ -15,7 +15,6 @@ export const Casilla = (props) => {
             if (letraAsignada === inputText.split('')[posicion]) {
                 classCasilla = "-valida"
             } else {
-                console.log(letraAsignada, inputText.split('')[posicion])
                 classCasilla = "-error"
             }
         }

@@ -58,10 +58,16 @@
 
 /*******************************/
 .contador-palabras-por-minuto {
+    
     padding: 0px 70px;
     font-size: 1.1em;
 }
+/*******************************/
+.texto-informacion{
 
+    padding: 0px 70px;
+    font-size: 0.75em;
+}
 /*******************************/
 .casilla {
     padding: 2px;
@@ -94,10 +100,17 @@
 }
 
 /*******************************/
+.content-inputText-game {
+    padding: 10px;
+}
 .inputText-game {
     width: 400px;
     height: 25px;
     font-size: 1em;
+    box-shadow: 0px 0px 10px rgba(13, 82, 172, 0.581);
+}
+.inputText-game:active {
+    box-shadow: 0px 0px 10px rgba(13, 82, 172, 0.895);
 }
 
 /*******************************/
