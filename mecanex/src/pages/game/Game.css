@@ -16,10 +16,11 @@
     padding: 0px 70px;
 }
 
-.tablero-fin{
+.tablero-fin {
     animation-name: transicion-in;
     animation-duration: 750ms;
 }
+
 @keyframes transicion-in {
     from {
         transform: translateX(0);
@@ -30,7 +31,7 @@
     }
 }
 
-.tablero-inicio{
+.tablero-inicio {
     animation-name: transicion-out;
     animation-duration: 750ms;
 }
@@ -44,6 +45,7 @@
         transform: translateX(0);
     }
 }
+
 .centrador {
     display: grid;
     place-content: center;
@@ -58,16 +60,18 @@
 
 /*******************************/
 .contador-palabras-por-minuto {
-    
+
     padding: 0px 70px;
     font-size: 1.1em;
 }
+
 /*******************************/
-.texto-informacion{
+.texto-informacion {
 
     padding: 0px 70px;
     font-size: 0.75em;
 }
+
 /*******************************/
 .casilla {
     padding: 2px;
@@ -103,14 +107,34 @@
 .content-inputText-game {
     padding: 10px;
 }
+
 .inputText-game {
     width: 400px;
     height: 25px;
     font-size: 1em;
     box-shadow: 0px 0px 10px rgba(13, 82, 172, 0.581);
 }
+
 .inputText-game:active {
     box-shadow: 0px 0px 10px rgba(13, 82, 172, 0.895);
+}
+
+/*******************************/
+.info-game {
+    padding: 0px 70px;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 20px;
+}
+.title-info-game{
+    padding: 20px 70px 0px;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+.data-info-game{
+    width: 100px;
+    font-size: 1.1em;
 }
 
 /*******************************/

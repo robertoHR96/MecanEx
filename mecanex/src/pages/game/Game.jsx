@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { Casilla } from './Casilla';
+import { InfoGame } from './InfoGame';
 
 
 export const Game = () => {
@@ -65,7 +66,7 @@ export const Game = () => {
     }
     let time = parseInt(cantidadPalabras / (valortime));
     if (time != isNaN) {
-    setPmi(time);
+      setPmi(time);
     }
   };
 
@@ -100,6 +101,7 @@ export const Game = () => {
   const siguienteJuego = () => {
     if (finGame) {
       detenerContador();
+      modInfoGame();
       setContador(0);
       setCorriendo(false);
       setClaseTablero("tablero-fin")
@@ -117,16 +119,31 @@ export const Game = () => {
     }
   }
 
+  const [infoGame, setInfoGame] = useState([
+    "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--",
+  ]);
+
+  const modInfoGame = () => {
+    let listaPuntuaciones = [...infoGame];
+    listaPuntuaciones.map((valor, index) => {
+      if (index.toString() == selecionTexto.toString()) {
+        listaPuntuaciones[index]=pmi
+      }
+    });
+    console.log(listaPuntuaciones)
+    setInfoGame([...listaPuntuaciones]);
+  };
+
   return (
     <div className='game'>
       <div className='centrador'>
         <div className='centrador logo'>
-          MecaNex
+          Los 15 NIVELES
         </div>
       </div>
       <div className='contador-palabras-por-minuto '>Nivel: <b>{selecionTexto}</b> de <b>{listaTextos.length}</b></div>
       {
-      <div className='contador-palabras-por-minuto '>Palabras por minuto: <b>{pmi}</b></div>
+        <div className='contador-palabras-por-minuto '>Palabras por minuto: <b>{pmi}</b></div>
       }
       <div className={'tablero ' + claseTablero}>
         {
@@ -154,6 +171,7 @@ export const Game = () => {
         <div className='boton boton-anterior'>Atras</div>
         <div className='boton boton-siguiente' onClick={() => siguienteJuego()}>Siguiente</div>
       </div>
+      <InfoGame infoGame={infoGame} setInfoGame={setInfoGame} />
       <div className='texto-informacion'>En esta lista, los textos comienzan con oraciones más simples y cortas, con un vocabulario y estructura más fácil de digitar. A medida que avanzas en la lista, los textos se vuelven progresivamente más largos y complejos, lo que requerirá un mayor nivel de habilidad y velocidad en la mecanografía.</div>
       <div className='modal-finGame'>
         {
