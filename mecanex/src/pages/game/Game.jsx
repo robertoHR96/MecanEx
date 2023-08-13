@@ -173,11 +173,6 @@ export const Game = () => {
       </div>
       <InfoGame infoGame={infoGame} setInfoGame={setInfoGame} />
       <div className='texto-informacion'>En esta lista, los textos comienzan con oraciones más simples y cortas, con un vocabulario y estructura más fácil de digitar. A medida que avanzas en la lista, los textos se vuelven progresivamente más largos y complejos, lo que requerirá un mayor nivel de habilidad y velocidad en la mecanografía.</div>
-      <div className='modal-finGame'>
-        {
-          (finGame) && <div className='centrador'>Enorabuena !!</div>
-        }
-      </div>
     </div>
   )
 }
