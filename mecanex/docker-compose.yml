@@ -1,0 +1,12 @@
+
+version: "1.0"
+
+services:
+  react-docker-m:
+    container_name: react-docker-m
+    build:
+      context: .
+      dockerfile:
+        DOCKERFILE
+    ports:
+      - "3000:3000"
