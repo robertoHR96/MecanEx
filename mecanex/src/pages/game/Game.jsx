@@ -67,6 +67,8 @@ export const Game = () => {
     let time = parseInt(cantidadPalabras / (valortime));
     if (time != isNaN) {
       setPmi(time);
+    } else {
+      setPmi("0")
     }
   };
 
