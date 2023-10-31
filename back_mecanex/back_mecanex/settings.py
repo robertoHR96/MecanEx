@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     ## Modelos
     'usuarios',
+    'partida',
     ## Confif
     'rest_framework_swagger',
     'rest_framework',
