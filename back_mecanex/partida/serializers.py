@@ -5,3 +5,8 @@ class PartidaByUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = Partida
         fields = "__all__"
+
+class PartidasByAllSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Partida
+        fields = "__all__"

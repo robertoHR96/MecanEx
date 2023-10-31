@@ -25,6 +25,7 @@ from drf_spectacular.views import (
     SpectacularSwaggerView,
 )
 
+from juego.urls import routerJuego
 from partida.urls import routerPartidaByUser
 from usuarios.urls import *
 urlpatterns = [
@@ -40,5 +41,6 @@ urlpatterns = [
     path("", include("usuarios.urls")),
 
     path("", include(routerPartidaByUser.urls)),
+    path("", include(routerJuego.urls)),
 
 ]

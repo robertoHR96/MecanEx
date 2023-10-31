@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     ## Modelos
     'usuarios',
     'partida',
+    'juego',
     ## Confif
     'rest_framework_swagger',
     'rest_framework',
@@ -83,8 +84,12 @@ WSGI_APPLICATION = 'back_mecanex.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'mecanex',
+        'USER': 'roberto',
+        'PASSWORD': 'mipassword',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 # JWT CONFIGURATION esto es necesario para que el jwt funcione
