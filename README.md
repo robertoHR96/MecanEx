@@ -22,9 +22,10 @@ Mecanex es una aplicación diseñada para mejorar la velocidad y precisión en l
 
 1. Clona este repositorio: `git clone https://github.com/tu_usuario/mecanex.git`
 2. Instala las dependencias del backend:
-pip install -r requirements.txt
+cd ./back_mecanex
+   -- x -- pip install -r requirements.txt
 3. Instala las dependencias del frontend:
-cd ../frontend
+cd ./mecanex
 npm install
 
 ## Uso
