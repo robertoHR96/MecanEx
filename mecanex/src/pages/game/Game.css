@@ -16,6 +16,7 @@
     cursor: pointer;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.364) inset;
     cursor: pointer;
+     background-color: rgb(243, 228, 90);
 }
 .root-index {
     height: 100vh;
@@ -33,7 +34,7 @@
     background-color: khaki;
     padding: 10px 20px;
     border-radius: 10px;
-    width: 70px;
+    /* width: 70px; */
 }
 
 /**************************/
@@ -95,6 +96,24 @@
     font-weight: bold;
     font-family: 'Roboto', 'Courier New', Courier, sans-serif;
     font-family: 'Courier New', Courier, monospace;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.p1{
+    background-color:#00843D;
+    color:white;
+    padding: 0px 2px 0px 6px;
+    border-radius: 5px 0px 0px 5px;
+}
+.p2{
+
+    padding: 0px 1px 0px 1px;
+}
+.p3{
+    color:white;
+    background-color: black;
+    padding: 0px 6px 0px 2px;
+    border-radius: 0px 5px 5px 0px;
 }
 
 /*******************************/
@@ -185,13 +204,17 @@
     justify-content: space-between;
     padding: 0px 70px;
 }
-
+.botones-menu-game {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 158px 158px;
+    justify-content: space-between;
+    padding: 0px 10px;
+}
 .boton-siguiente,
-.boton-anterior {
-    background-color: khaki;
+.boton-anterior, .boton-salir, .boton-seguir {
     padding: 10px 20px;
     border-radius: 10px;
-    width: 70px;
 
     display: grid;
     place-content: center;
@@ -205,3 +228,22 @@
     user-select: none;
 }
 
+.boton-siguiente,
+.boton-anterior{
+    background-color: khaki;
+
+}
+ .boton-salir {
+    background-color: rgb(205, 48, 39);
+    color:white;
+}
+ .boton-salir:active {
+    background-color: rgb(211, 13, 3);
+ }
+ .boton-seguir {
+    color:white;
+    background-color: rgb(109, 203, 75);
+ }
+ .boton-seguir:active {
+    background-color: rgb(79, 200, 34);
+ }

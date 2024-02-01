@@ -1,5 +1,6 @@
 import './App.css';
 import { UserContext } from './context/UserContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

@@ -8,8 +8,8 @@ export const InfoGame = (prop) => {
         </div>
         <div className='info-game'>
             {
-                infoGame.map((valor, index) => (
-                    <div className='data-info-game'>Juego <b>{index}</b>: <b>{valor}</b></div>
+               (infoGame != undefined) && infoGame.map((valor, index) => (
+                    <div className='data-info-game'>Juego <b>{index+1}</b>: <b>{valor}</b></div>
                 ))
             }
         </div>
