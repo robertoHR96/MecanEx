@@ -1,17 +1,18 @@
 import React from 'react'
 
 export const InfoGame = (prop) => {
-    const { infoGame, setInfoGame } = prop;
-    return (<>
-        <div className='title-info-game'>
-            Puntuaciones
+    const { Textos } = prop;
+    return (
+      <>
+        <div className="title-info-game">Puntuaciones</div>
+        <div className="info-game">
+          {
+            Textos.map((valor) => (
+              <div className="data-info-game">
+                Juego <b>{valor.juego }</b>: <b>{valor.puntuacion}</b>
+              </div>
+            ))}
         </div>
-        <div className='info-game'>
-            {
-               (infoGame != undefined) && infoGame.map((valor, index) => (
-                    <div className='data-info-game'>Juego <b>{index+1}</b>: <b>{valor}</b></div>
-                ))
-            }
-        </div>
-    </>)
+      </>
+    );
 }

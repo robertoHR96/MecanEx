@@ -1,7 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Casilla } from "./Casilla";
 import { InfoGame } from "./InfoGame";
+
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import axios from "axios";
 import { useUsuarioContext } from "../../context/UsuarioContext";
@@ -10,25 +13,29 @@ export const Game = () => {
   const { user, loginUser, logoutUser } = useUsuarioContext();
   const [ModalSalir, setModalSalir] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation(); // Obtén la ubicación actual
 
-  const [Textos, setTextos] = useState();
-  const listaTextos = [
-    "El sol brilla en el cielo azul y las nubes flotan suavemente como algodones de azúcar. El canto de los pájaros alegra el ambiente mientras la brisa acaricia mi rostro. Hoy es un buen día para mejorar mis habilidades de mecanografía.",
-    "Había una vez un pequeño pueblo en lo profundo del bosque, donde todos se conocían y compartían momentos felices. Los niños jugaban en la plaza central mientras los adultos trabajaban en armonía. Sin embargo, una sombra amenazadora se cernía sobre ellos.",
-    "El científico dedicado pasaba largas horas en su laboratorio, sumergido en sus experimentos. La búsqueda del conocimiento lo llevaba a descubrimientos fascinantes y a veces inesperados. La pasión por la ciencia lo impulsaba a seguir adelante.",
-    "La travesía por el desierto era agotadora, pero el grupo de exploradores estaba decidido a llegar a la antigua ciudad perdida. Los oasis brindaban un breve respiro, pero también escondían peligros desconocidos.",
-    "En la competencia de piano, la joven pianista mostraba su talento y pasión por la música clásica. Las notas fluían con gracia y emoción, dejando al público asombrado por su habilidad técnica y expresividad.",
-    "La inteligencia artificial ha avanzado enormemente en los últimos años, abriendo un mundo de posibilidades en diversas industrias. Sin embargo, la ética en su desarrollo y aplicación sigue siendo un tema de debate.",
-    "El arquitecto visionario diseñaba rascacielos impresionantes que se alzaban hacia el cielo como gigantes de acero y vidrio. Cada estructura era una obra maestra de ingeniería y estética.",
-    "En el mundo virtual, los jugadores se sumergen en emocionantes aventuras llenas de acción y misterio. La realidad se desvanece mientras exploran mundos imaginarios con sus amigos.",
-    "El océano profundo es un reino misterioso y fascinante. Las profundidades albergan criaturas extrañas y asombrosas que despiertan la curiosidad de científicos y exploradores.",
-    "En la cumbre de la montaña más alta, los alpinistas experimentados enfrentan condiciones climáticas extremas y peligros inminentes. La determinación y la camaradería los impulsan hacia la cima.",
-    "En la feria tecnológica, los ingenieros presentan invenciones innovadoras que revolucionarán la vida cotidiana. La imaginación se combina con la creatividad para dar forma al futuro.",
-    "La investigación médica avanza hacia nuevas terapias y tratamientos para enfermedades complejas. La lucha contra el cáncer y otras dolencias es un camino arduo pero esperanzador.",
-    "El detective perspicaz sigue las pistas meticulosamente en un caso de asesinato desconcertante. Cada detalle cuenta para desentrañar el misterio y llevar a los culpables ante la justicia.",
-    "En el torneo de ajedrez, los grandes maestros compiten en partidas épicas de estrategia y táctica. La mente se convierte en el campo de batalla donde la astucia y el ingenio se despliegan.",
-    "¡Felicidades! Has llegado al último texto de mecanografía. Demuestra tus habilidades escribiendo esta secuencia compleja de números y caracteres especiales: 3$Kp @9& zQ * w5.",
-  ];
+  // Función para obtener el valor del parámetro de consulta 'code'
+  const getCodeFromQuery = () => {
+    const searchParams = new URLSearchParams(location.search);
+    return searchParams.get("gm");
+  };
+
+  // Llama a la función para obtener el valor de 'code'
+  const gm = getCodeFromQuery();
+
+  const [Nivel, setNivel] = useState({ id: "", titulo: "", descripcion: "" });
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/juego/" + gm + "/")
+      .then((response) => {
+        setNivel(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  const [Textos, setTextos] = useState([]);
 
   const [selecionTexto, setSeleccionTexto] = useState(0);
   const [inputText, setInputText] = useState("");
@@ -37,27 +44,10 @@ export const Game = () => {
   const [corriendo, setCorriendo] = useState(false);
   useEffect(() => {
     loginUser({
-      infoGame: [
-        "--",
-        "--",
-        "--",
-        "--",
-        "--",
-        "--",
-        "--",
-        "--",
-        "--",
-        "--",
-        "--",
-        "--",
-        "--",
-        "--",
-        "--",
-      ],
+      infoGame: [],
     });
   }, []);
   useEffect(() => {
-
     let intervalo;
 
     if (corriendo) {
@@ -71,11 +61,15 @@ export const Game = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/juego/")
+      .get("http://localhost:8000/nivel/niveles_por_juego/?juego_id=" + gm)
       .then(function (response) {
         response.data.sort((a, b) => a.dificultad - b.dificultad);
-        setTextos(response.data);
-        setJuego(response.data[0]);
+        let listaVacia = [];
+        response.data.map((texto) => {
+          listaVacia.push({ ...texto, puntuacion: "--" });
+        });
+        setTextos(listaVacia);
+        setJuego(listaVacia[0]);
       })
       .catch(function (error) {
         // handle error
@@ -129,6 +123,8 @@ export const Game = () => {
     detenerContador();
   };
 
+  const [finNivel, setFinNivel] = useState(false);
+
   useEffect(() => {
     if (Juego != null) {
       inputText === Juego.texto ? finDelJuego() : setFinGame(false);
@@ -161,31 +157,40 @@ export const Game = () => {
       setContador(0);
       setCorriendo(false);
       setClaseTablero("tablero-fin");
-      setTimeout(() => {
-        setInputText("");
-        setPmi(0);
-        setFinGame(false);
-        // En el montaje del componente, enfocamos el input automáticamente
-        inputRef.current.focus();
-        // Iniciamo el contador de tiempo, para calcular la velocidad de escritura
-        setSeleccionTexto(selecionTexto + 1);
-        setClaseTablero("tablero-inicio");
-      }, 365);
-      iniciarContador();
+      if ((selecionTexto + 1 ) == Textos.length) {
+        setFinNivel(true);
+      } else {
+        setTimeout(() => {
+          setInputText("");
+          setPmi(0);
+          setFinGame(false);
+          // En el montaje del componente, enfocamos el input automáticamente
+          inputRef.current.focus();
+          // Iniciamo el contador de tiempo, para calcular la velocidad de escritura
+          setSeleccionTexto(selecionTexto + 1);
+          setClaseTablero("tablero-inicio");
+        }, 365);
+        iniciarContador();
+      }
     }
   };
 
-
   const modInfoGame = () => {
-    let listaPuntuaciones = user.infoGame;
-    listaPuntuaciones.map((valor, index) => {
-      if (index.toString() == selecionTexto.toString()) {
-        listaPuntuaciones[index] = pmi;
-      }
+    let listaDosTextos = [];
+    Textos.map((texto) => {
+      listaDosTextos.push({ ...texto });
     });
-    console.log(listaPuntuaciones)
-    loginUser({...user, infoGame:listaPuntuaciones, das:"hola"})
+    listaDosTextos[selecionTexto].puntuacion = pmi;
+    setTextos(listaDosTextos);
   };
+
+  const puntuacionTotal = () => {
+    let suma = 0;
+    Textos.map((texto) => {
+      suma = suma + texto.puntuacion
+    })
+    return (suma / Textos.length)
+  }
 
   return (
     <>
@@ -196,10 +201,10 @@ export const Game = () => {
             <p className="p2">can</p>
             <p className="p3">Ex</p>
           </div>
-          <div className="centrador logo">Los 15 NIVELES</div>
+          <div className="centrador logo">{Nivel.titulo}</div>
         </div>
         <div className="contador-palabras-por-minuto ">
-          Nivel: <b>{selecionTexto+1}</b> de <b>{listaTextos.length}</b>
+          Nivel: <b>{selecionTexto + 1}</b> de <b>{Textos.length}</b>
         </div>
         <div className="contador-palabras-por-minuto ">
           Palabras por minuto: <b>{!isNaN(pmi) ? pmi : 0}</b>
@@ -237,7 +242,7 @@ export const Game = () => {
             Siguiente
           </div>
         </div>
-        <InfoGame infoGame={user.infoGame} setInfoGame={loginUser} />
+        {Textos != undefined && <InfoGame Textos={Textos} />}
         <div className="texto-informacion">
           En esta lista, los textos comienzan con oraciones más simples y
           cortas, con un vocabulario y estructura más fácil de digitar. A medida
@@ -265,6 +270,18 @@ export const Game = () => {
             <div className="boton boton-seguir" onClick={() => pause()}>
               Seguir jugando
             </div>
+          </div>
+        </ModalFooter>
+      </Modal>
+      <Modal isOpen={finNivel}>
+        <ModalHeader>Fin del juego</ModalHeader>
+        <ModalBody>
+          Fin del juego, enorabuena has ganado con una puntuacion de{" "}
+          {puntuacionTotal()}
+        </ModalBody>
+        <ModalFooter>
+          <div className="boton boton-seguir" onClick={() => navigate("/")}>
+            Seguir jugando
           </div>
         </ModalFooter>
       </Modal>

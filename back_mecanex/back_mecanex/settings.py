@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'usuarios',
     'partida',
     'juego',
+    'nivel',
     ## Confif
     'rest_framework_swagger',
     'rest_framework',

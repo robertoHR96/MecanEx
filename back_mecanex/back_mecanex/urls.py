@@ -26,7 +26,7 @@ from drf_spectacular.views import (
 )
 
 from juego.urls import routerJuego
-from partida.urls import routerPartidaByUser
+from nivel.urls import routerNivel
 from usuarios.urls import *
 urlpatterns = [
 
@@ -40,7 +40,7 @@ urlpatterns = [
     # Rutas de la api de usuarios(AUTH)
     path("", include("usuarios.urls")),
 
-    path("", include(routerPartidaByUser.urls)),
     path("", include(routerJuego.urls)),
-
+    path("", include(routerNivel.urls)),
+    
 ]

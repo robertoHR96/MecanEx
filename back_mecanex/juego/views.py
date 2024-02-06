@@ -11,7 +11,7 @@ from .models import Juego
 from .serializers import *
 from permissions import is_Admin
 
-class Juego( mixins.CreateModelMixin,
+class JuegoView( mixins.CreateModelMixin,
     mixins.RetrieveModelMixin,
     mixins.UpdateModelMixin,
     mixins.DestroyModelMixin,
@@ -22,9 +22,11 @@ class Juego( mixins.CreateModelMixin,
     serializer_class = JuegoSerializar
 
     def get_permissions(self):
-        if self.action == "list" or self.action == "retrive":
+        if self.action == "list" or self.action == "retrieve":
             permission_classes= []
         else:
             permission_classes = [IsAuthenticated, is_Admin ]
 
         return [permission() for permission in permission_classes]
+
+

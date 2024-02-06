@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "texto": "El sol brilla en el cielo azul y las nubes flotan suavemente como algodones de azúcar. El canto de los pájaros alegra el ambiente mientras la brisa acaricia mi rostro. Hoy es un buen día para mejorar mis habilidades de mecanografía.",
+    "dificultad": 1
+  },
+  {
+    "id": 2,
+    "texto": "Había una vez un pequeño pueblo en lo profundo del bosque, donde todos se conocían y compartían momentos felices. Los niños jugaban en la plaza central mientras los adultos trabajaban en armonía. Sin embargo, una sombra amenazadora se cernía sobre ellos.",
+    "dificultad": 2
+  },
+  {
+    "id": 3,
+    "texto": "El científico dedicado pasaba largas horas en su laboratorio, sumergido en sus experimentos. La búsqueda del conocimiento lo llevaba a descubrimientos fascinantes y a veces inesperados. La pasión por la ciencia lo impulsaba a seguir adelante.",
+    "dificultad": 3
+  },
+  {
+    "id": 4,
+    "texto": "La travesía por el desierto era agotadora, pero el grupo de exploradores estaba decidido a llegar a la antigua ciudad perdida. Los oasis brindaban un breve respiro, pero también escondían peligros desconocidos.",
+    "dificultad": 4
+  },
+  {
+    "id": 5,
+    "texto": "En la competencia de piano, la joven pianista mostraba su talento y pasión por la música clásica. Las notas fluían con gracia y emoción, dejando al público asombrado por su habilidad técnica y expresividad.",
+    "dificultad": 5
+  },
+  {
+    "id": 6,
+    "texto": "La inteligencia artificial ha avanzado enormemente en los últimos años, abriendo un mundo de posibilidades en diversas industrias. Sin embargo, la ética en su desarrollo y aplicación sigue siendo un tema de debate.",
+    "dificultad": 6
+  },
+  {
+    "id": 7,
+    "texto": "El arquitecto visionario diseñaba rascacielos impresionantes que se alzaban hacia el cielo como gigantes de acero y vidrio. Cada estructura era una obra maestra de ingeniería y estética.",
+    "dificultad": 7
+  },
+  {
+    "id": 8,
+    "texto": "En el mundo virtual, los jugadores se sumergen en emocionantes aventuras llenas de acción y misterio. La realidad se desvanece mientras exploran mundos imaginarios con sus amigos.",
+    "dificultad": 8
+  },
+  {
+    "id": 9,
+    "texto": "El océano profundo es un reino misterioso y fascinante. Las profundidades albergan criaturas extrañas y asombrosas que despiertan la curiosidad de científicos y exploradores.",
+    "dificultad": 9
+  },
+  {
+    "id": 10,
+    "texto": "En la cumbre de la montaña más alta, los alpinistas experimentados enfrentan condiciones climáticas extremas y peligros inminentes. La determinación y la camaradería los impulsan hacia la cima.",
+    "dificultad": 10
+  },
+  {
+    "id": 11,
+    "texto": "En la feria tecnológica, los ingenieros presentan invenciones innovadoras que revolucionarán la vida cotidiana. La imaginación se combina con la creatividad para dar forma al futuro.",
+    "dificultad": 11
+  },
+  {
+    "id": 12,
+    "texto": "La investigación médica avanza hacia nuevas terapias y tratamientos para enfermedades complejas. La lucha contra el cáncer y otras dolencias es un camino arduo pero esperanzador.",
+    "dificultad": 12
+  },
+  {
+    "id": 13,
+    "texto": "El detective perspicaz sigue las pistas meticulosamente en un caso de asesinato desconcertante. Cada detalle cuenta para desentrañar el misterio y llevar a los culpables ante la justicia.",
+    "dificultad": 13
+  },
+  {
+    "id": 14,
+    "texto": "En el torneo de ajedrez, los grandes maestros compiten en partidas épicas de estrategia y táctica. La mente se convierte en el campo de batalla donde la astucia y el ingenio se despliegan.",
+    "dificultad": 14
+  },
+  {
+    "id": 15,
+    "texto": "¡Felicidades! Has llegado al último texto de mecanografía. Demuestra tus habilidades escribiendo esta secuencia compleja de números y caracteres especiales: 3$Kp @9& zQ * w5.",
+    "dificultad": 15
+  }
+]

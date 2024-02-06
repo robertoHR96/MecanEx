@@ -7,6 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
+"""
 from .models import Partida
 from .serializers import PartidaByUserSerializer, PartidasByAllSerializer 
 class PartidaByUser( mixins.CreateModelMixin,
@@ -30,3 +31,4 @@ class PartidasByAll(mixins.ListModelMixin, viewsets.GenericViewSet):
     serializer_class = PartidasByAllSerializer
     def get_queryset(self):
         return Partida.objects.all()
+"""
