@@ -1,0 +1,130 @@
+.centrador {
+  display: grid;
+  place-content: center;
+}
+.guardar-contraseña {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: left;
+  align-content: center;
+  column-gap: 10px;
+}
+
+.baseLogin {
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.082);
+}
+.root-index {
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto;
+  place-content: center;
+  background-color: white;
+  border-radius: 25px;
+  box-shadow: 0px 0px 10px  rgba(0, 0, 0, 0.259) ;
+}
+.titulo-home {
+  display: grid;
+  align-content: space-between;
+  padding: 20px;
+  border-radius: 25px;
+  background-color: #00843e26;
+}
+.titulo-home p {
+  border: 10px;
+}
+.link {
+  color: #00843eb3;
+}
+.link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #00843e74;
+}
+
+.content-login {
+  grid-template-columns: minmax(200px, 350px);
+  row-gap: 20px;
+  place-content: center;
+  padding: 20px;
+}
+.titulo-t1 {
+  font-size: 3em;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+}
+.titulo-t2 {
+  font-size: 2em;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+}
+.descripcion {
+  font-size: 2em;
+  font-family: "Courier New", Courier, monospace;
+}
+.login-input-text {
+  display: grid;
+  grid-template-columns: auto;
+  row-gap: 10px;
+}
+.contenido-botones {
+  display: grid;
+  align-content: space-between;
+  row-gap: 90px;
+}
+.lista-juegos {
+  display: grid;
+  grid-template-columns: 0.5fr;
+  justify-content: center;
+  align-content: start;
+  overflow-y: scroll;
+  row-gap: 10px;
+}
+.botonesLogin {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 10px;
+}
+.button-juego {
+  background-color: #00843d;
+  color: white;
+}
+.button-juego:active {
+  background-color: #00843eaa;
+}
+.button-login {
+  background-color: black;
+  color: white;
+}
+.button-login:hover{
+  background-color: rgba(0, 0, 0, 0.796);
+}
+.button-login:active {
+  background-color: rgba(0, 0, 0, 0.607);
+}
+.olvidar-contraseña {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  column-gap: 4px;
+  align-content: center;
+}
+.centrador-line {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  justify-content: center;
+  align-content: center;
+}
+.line {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.705);
+  color: rgba(0, 0, 0, 0.705);
+  height: 1.5px;
+}
+/*************************/
+/*************************/
+/*************************/
+/*************************/
+/*************************/
+/*************************/
+/*************************/
+

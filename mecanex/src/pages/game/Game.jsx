@@ -196,11 +196,6 @@ export const Game = () => {
     <>
       <div className="game">
         <div className="centrador">
-          <div className="titulo-home logo centrador">
-            <p className="p1">Me</p>
-            <p className="p2">can</p>
-            <p className="p3">Ex</p>
-          </div>
           <div className="centrador logo">{Nivel.titulo}</div>
         </div>
         <div className="contador-palabras-por-minuto ">

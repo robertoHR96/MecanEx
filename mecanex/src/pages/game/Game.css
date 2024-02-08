@@ -18,20 +18,9 @@
     cursor: pointer;
      background-color: rgb(243, 228, 90);
 }
-.root-index {
-    height: 100vh;
-    grid-template-columns: auto;
-    row-gap: 20px;
-    place-content: center;
-}
 
-.descripcion {
-    font-size: 2em;
-    font-family: 'Courier New', Courier, monospace;
-}
 
 .button-init {
-    background-color: khaki;
     padding: 10px 20px;
     border-radius: 10px;
     /* width: 70px; */
@@ -45,6 +34,7 @@
     align-content: start;
     row-gap: 20px;
     padding: 20px;
+    padding-top:65px;
 }
 
 .tablero {
@@ -86,10 +76,7 @@
     }
 }
 
-.centrador {
-    display: grid;
-    place-content: center;
-}
+
 
 .logo {
     font-size: 3em;
@@ -108,6 +95,7 @@
 .p2{
 
     padding: 0px 1px 0px 1px;
+    background-color: white;
 }
 .p3{
     color:white;
