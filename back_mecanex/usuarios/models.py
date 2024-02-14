@@ -8,6 +8,7 @@ class Usuario(AbstractUser):
     email = models.EmailField(unique=True)
     is_Admin = models.BooleanField(null = False)
     is_Jugador = models.BooleanField(null = False)
+    edad = models.IntegerField(default=0, null=False, blank=False)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 

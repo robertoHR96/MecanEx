@@ -5,8 +5,19 @@ import { useUsuarioContext } from "../../context/UsuarioContext";
 import axios from "axios";
 import { Login } from "./Login";
 import "./Login.css";
+import Register from "../register/Register";
 
-export const Home = () => {
+export const Home = (props) => {
+  const { tipe } = props;
+
+  const element = () => {
+    if (tipe == "login") {
+      return <Login />
+    } else if (tipe == "register") {
+      return <Register />
+    }
+  }
+  
   return (<>
     <div className="centrador baseLogin">
       <div className="centrador root-index">
@@ -20,7 +31,9 @@ export const Home = () => {
               Saber mas
           </div>
         </div>
-        <Login />
+        {
+          element()
+        }
       </div>
     </div>
 

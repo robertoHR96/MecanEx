@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "../pages/home/Home";
+import { Login } from "../pages/home/Login";
 import { Juegos } from "../pages/home/Juegos";
 import { Game } from "../pages/game/Game";
-import { Navb } from "../components/Navb"
+import { Navb } from "../components/Navb";
 import {
   Collapse,
   Navbar,
@@ -19,14 +20,35 @@ import {
   NavbarText,
 } from "reactstrap";
 import Footer from "../components/Footer";
+import Register from "../pages/register/Register";
 
 export const AppRouter = () => {
   return (
     <BrowserRouter>
       <Navb />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <Home>
+              <Login />
+            </Home>
+          }
+        />
+        <Route
+          path="/home"
+          element={
+            <Home tipe={"login"}>
+            </Home>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <Home tipe={"register"}>
+            </Home>
+          }
+        />
         <Route path="/juegos" element={<Juegos />} />
         <Route path="/game" element={<Game />} />
       </Routes>

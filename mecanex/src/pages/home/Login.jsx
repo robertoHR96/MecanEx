@@ -84,7 +84,9 @@ const config = {
           >
             <b>Iniciar sesión</b>
           </div>
-          <div className="button button-init centrador button-login">
+          <div className="button button-init centrador button-login"
+            onClick={() => navigate("/register")}
+          >
             <b>Registrarse</b>
           </div>
           <div className="olvidar-contraseña">

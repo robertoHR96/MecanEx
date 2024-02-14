@@ -11,8 +11,10 @@
 }
 
 .baseLogin {
-  height: 100vh;
+  min-height: 100vh;
   background-color: rgba(0, 0, 0, 0.082);
+  padding-top: 80px;
+  padding-bottom: 20px;
 }
 .root-index {
   grid-template-columns: 1fr 2fr;

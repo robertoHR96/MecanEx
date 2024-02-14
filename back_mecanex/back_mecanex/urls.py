@@ -42,5 +42,7 @@ urlpatterns = [
 
     path("", include(routerJuego.urls)),
     path("", include(routerNivel.urls)),
+    path("", include(routerUsuarios.urls)),
+    path("", include(routerRegisterUsuarios.urls)),
     
 ]
