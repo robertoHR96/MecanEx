@@ -2,6 +2,22 @@
   display: grid;
   place-content: center;
 }
+.centrador-doble-hor,
+.centrador-doble-hor-estric {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+}
+.centrador-doble-hor-estric {
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
+}
+.centrador-triple-hor {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-between;
+}
+
 .guardar-contraseña {
   display: grid;
   grid-template-columns: auto auto;
@@ -22,7 +38,13 @@
   place-content: center;
   background-color: white;
   border-radius: 25px;
-  box-shadow: 0px 0px 10px  rgba(0, 0, 0, 0.259) ;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.259);
+}
+@media only screen and (max-width: 750px) {
+  .root-index {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+  }
 }
 .titulo-home {
   display: grid;
@@ -48,6 +70,12 @@
   row-gap: 20px;
   place-content: center;
   padding: 20px;
+}
+@media only screen and (max-width: 750px) {
+  .content-login{
+    row-gap: 10px;
+    padding: 10px;
+  }
 }
 .titulo-t1 {
   font-size: 3em;
@@ -97,7 +125,7 @@
   background-color: black;
   color: white;
 }
-.button-login:hover{
+.button-login:hover {
   background-color: rgba(0, 0, 0, 0.796);
 }
 .button-login:active {
@@ -130,3 +158,21 @@
 /*************************/
 /*************************/
 
+.content-dropdown {
+  overflow-y: scroll;
+  max-height: 250px;
+}
+#Tooltip-pass {
+  width: 1em;
+  height: 1em;
+  padding: 0.5em;
+  border: solid 1px;
+  border-radius: 100%;
+  cursor: help;
+}
+#Tooltip-pass * {
+  cursor: help;
+}
+.barra-progreso div {
+  background-color: #00843e;
+}

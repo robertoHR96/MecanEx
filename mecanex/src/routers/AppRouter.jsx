@@ -30,7 +30,7 @@ export const AppRouter = () => {
         <Route
           path="/"
           element={
-            <Home>
+            <Home tipe={"login"}>
               <Login />
             </Home>
           }
