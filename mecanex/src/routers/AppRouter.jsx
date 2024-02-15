@@ -21,6 +21,8 @@ import {
 } from "reactstrap";
 import Footer from "../components/Footer";
 import Register from "../pages/register/Register";
+import { Perfil } from "../pages/perfil/Perfil";
+import { Estadisticas } from "../pages/estadisticas/Estadisticas";
 
 export const AppRouter = () => {
   return (
@@ -49,6 +51,11 @@ export const AppRouter = () => {
             </Home>
           }
         />
+        <Route
+          path="/perfil"
+          element={<Perfil />}
+        />
+        <Route path="/estadisticas" element={<Estadisticas />} />
         <Route path="/juegos" element={<Juegos />} />
         <Route path="/game" element={<Game />} />
       </Routes>

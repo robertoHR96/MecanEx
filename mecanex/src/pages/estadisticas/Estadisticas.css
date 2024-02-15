@@ -1,0 +1,16 @@
+.estadisticas {
+  min-height: 100vh;
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: minmax(auto, 70%);
+  justify-content: center;
+  align-content: start;
+  background-color: rgb(241, 244, 238);
+  padding: 20px 0px;
+}
+@media only screen and (max-width: 750px) {
+  .estadisticas {
+    grid-template-columns: 1fr;
+    padding:20px 2px;
+  }
+}

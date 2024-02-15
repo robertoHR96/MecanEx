@@ -31,3 +31,17 @@
   padding: 0px 6px 0px 2px;
   border-radius: 0px 5px 5px 0px;
 }
+.button-navbar{
+  font-size: 1.2em;
+  font-family: "Courier New", Courier, monospace;
+  margin-left: 20px;
+  color:#5b5b5b;
+  cursor: pointer;
+      -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.button-navbar:hover{
+  color:rgb(0, 0, 0);
+}

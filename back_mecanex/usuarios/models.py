@@ -9,6 +9,7 @@ class Usuario(AbstractUser):
     is_Admin = models.BooleanField(null = False)
     is_Jugador = models.BooleanField(null = False)
     edad = models.IntegerField(default=0, null=False, blank=False)
+    fotPerfil = models.BinaryField(null=True)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 

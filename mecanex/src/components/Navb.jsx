@@ -18,6 +18,7 @@ import {
 } from "reactstrap";
 
 export const Navb = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   return (
@@ -31,11 +32,21 @@ export const Navb = () => {
               <p className="p3">Ex</p>
             </div>
           </NavbarBrand>
-          <NavItem></NavItem>
+            <div className="centrador button-navbar" onClick={() => navigate("/juegos")}>
+              <b>Juegos</b>
+            </div>
+            <div className="centrador button-navbar">
+              <b>Ranking</b>
+            </div>
+            <div className="centrador button-navbar" onClick={() => navigate("/estadisticas")}>
+              <b>Estadisticas</b>
+            </div>
         </Nav>
         <Nav>
           <NavbarText>
-            <div className="centrador">Perfil </div>
+            <div className="centrador" onClick={() => navigate("/perfil")}>
+              Perfil{" "}
+            </div>
           </NavbarText>
         </Nav>
       </Navbar>

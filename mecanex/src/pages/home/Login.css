@@ -28,7 +28,7 @@
 
 .baseLogin {
   min-height: 100vh;
-  background-color: rgba(0, 0, 0, 0.082);
+    background-color: rgb(241, 244, 238);
   padding-top: 80px;
   padding-bottom: 20px;
 }

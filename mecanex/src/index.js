@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import "./pages/game/Game.css"
 import "./pages/home/Login.css"
+import "./pages/perfil/Perfil.css"
+import "./pages/estadisticas/Estadisticas.css"
 import App from "./App";
 import { AppRouter } from "./routers/AppRouter";
 import reportWebVitals from "./reportWebVitals";

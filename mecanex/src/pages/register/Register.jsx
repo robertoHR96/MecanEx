@@ -19,6 +19,7 @@ import {
 import PropTypes from "prop-types";
 import { FormRegistro1 } from "./FormRegistro1";
 import { FormRegistro2 } from "./FormRegistro2";
+import { BotonesRegister } from "./BotonesRegister";
 
 export default function Register() {
   const years = Array.from(
@@ -48,6 +49,8 @@ export default function Register() {
     edad: false,
   });
 
+  const [modalSalirRegistro, setModalSalirRegistro] = useState(false);
+
   const [progresoRegistro, setProgresoRegistro] = useState(0);
 
   const [modalFinRegistro, setModalFinRegistro] = useState(false);
@@ -69,8 +72,16 @@ export default function Register() {
   }, [dataRegister.password_repit, dataRegister.password]);
 
   const register = () => {
-		setProgresoRegistro(2);
+    setProgresoRegistro(2);
     setModalFinRegistro(!modalFinRegistro);
+  };
+
+  const atras = () => {
+    if (progresoRegistro > 0) {
+      setProgresoRegistro(progresoRegistro - 1);
+    } else {
+      setModalSalirRegistro(!modalFinRegistro);
+    }
   };
 
   const iniciarSesion = () => {};
@@ -125,21 +136,21 @@ export default function Register() {
             value={progresoRegistro * 50}
           />
         </div>
-        <br />
-        <div className="centrador-doble-hor-estric">
-          <div
-            className="button button-init centrador button-login"
-            onClick={() => iniciarSesion()}
-          >
-            <b>Iniciar Sesion</b>
-          </div>
-          <div
-            className="button button-init centrador button-juego"
-            onClick={() => siguiente()}
-          >
-            <b>Siguiente</b>
-          </div>
-        </div>
+        {progresoRegistro === 0 ? (
+          <BotonesRegister
+            botonIzq={atras}
+            textIzq={"Iniciar Sesion"}
+            botonDer={siguiente}
+            textDer={"Siguiente"}
+          />
+        ) : (
+          <BotonesRegister
+            botonIzq={atras}
+            textIzq={"Atras"}
+            botonDer={siguiente}
+            textDer={"Registrar"}
+          />
+        )}
       </div>
       <Modal isOpen={modalFinRegistro} centered>
         <ModalHeader>¡Genial!</ModalHeader>
@@ -152,9 +163,30 @@ export default function Register() {
               navigate("/juegos");
             }}
           >
-						<b>
-            	Continuar
-						</b>
+            <b>Continuar</b>
+          </div>
+        </ModalFooter>
+      </Modal>
+      <Modal isOpen={modalSalirRegistro} centered>
+        <ModalHeader>¿Seguro que desea salir?</ModalHeader>
+        <ModalBody>Si sale perdera todo el progreso</ModalBody>
+        <ModalFooter>
+          <div className="centrador-doble-hor-estric">
+            <div
+              className="button button-init centrador button-login"
+              onClick={() => {
+                setModalSalirRegistro(!modalSalirRegistro);
+                navigate("/home");
+              }}
+            >
+              <b>Salir</b>
+            </div>
+            <div
+              className="button button-init centrador button-juego"
+              onClick={() => setModalSalirRegistro(!modalSalirRegistro)}
+            >
+              <b>Seguir</b>
+            </div>
           </div>
         </ModalFooter>
       </Modal>

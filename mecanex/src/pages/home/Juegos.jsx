@@ -37,70 +37,7 @@ export const Juegos = () => {
         </div>
       </div>
 
-      <div className="info-jugador">
-        <ElemenIJ doble={true} title="Data Jugador" content="Hola como estas" />
-        <ElemenIJ
-          title="Data Jugador"
-          content="Hola como estas"
-        />
-        <ElemenIJ
-          title="Data Jugador"
-          content="Hola como estas \n asdfadsfaaaaaa
-          dfa
-          fa
-          dsf
-          asdf
-          a
-          sdf
-          asdf
-          a
-          sdf
-          asdf
-          a
-          sdf
-          asdf
-          a
-          sdfa
-          dfs
-          asd
-          fa
-          fa
-          af
-          da
-          dfs
-          asdf
-          a
-          dsf
-          adfs
-          a
-          dfs
-          asd
-          fa
-          sdf
-          asd
-          fa
-          sdf
-          ad
-          sdf
-          asdf
-          asd
-          f
-          adsfasdf
-          .forEach(element => {
-            
-          });
-          "
-        />
-        <ElemenIJ
-          title="Data Jugador"
-          content="Hola como estas"
-        />
-        <ElemenIJ
-          title="Data Jugador"
-          content="Hola como estas"
-        />
-        <ElemenIJ doble={true} title="Data Jugador" content="Hola como estas" />
-      </div>
+      
     </div>
   );
 };
