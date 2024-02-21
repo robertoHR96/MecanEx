@@ -19,13 +19,14 @@ from permissions import is_Admin
 """
 class UsuariosView( 
     mixins.RetrieveModelMixin,
+    mixins.ListModelMixin,
     mixins.UpdateModelMixin,
     viewsets.GenericViewSet,):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
 
     def get_permissions(self):
-        if self.action == "retrieve":
+        if self.action == "retrieve" and self.action == "list":
             permission_classes = [IsAuthenticated]
         else :
             permission_classes = [IsAuthenticated, is_Admin]

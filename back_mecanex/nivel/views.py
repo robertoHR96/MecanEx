@@ -3,6 +3,7 @@ from rest_framework import viewsets, mixins
 from django.views.generic import View
 from django.shortcuts import get_object_or_404, get_list_or_404
 from django.http import HttpResponse, HttpResponseForbidden
+from rest_framework.exceptions import PermissionDenied, NotFound
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -10,8 +11,8 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.decorators import action
 
-from .models import Nivel
-from .serializers import NivelSerializar
+from .models import Nivel, PuntucionNivelUsuario
+from .serializers import NivelSerializar, PuntucionNivelSerializer
 from permissions import is_Admin
 
 class NivelView( mixins.CreateModelMixin,
@@ -46,3 +47,23 @@ class NivelView( mixins.CreateModelMixin,
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Nivel.DoesNotExist:
             return Response("No se encontraron niveles para el juego proporcionado", status=status.HTTP_404_NOT_FOUND)
+
+class PuntucionNivelUsuarioView(
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.ListModelMixin,
+    viewsets.GenericViewSet):
+    
+    serializer_class = PuntucionNivelSerializer
+    permission_classes= [IsAuthenticated]
+
+    def get_queryset(self):
+        if self.action == "list":
+            return get_list_or_404(PuntucionNivelUsuario, usuario=self.request.user.id)
+        else:
+            return get_object_or_404(PuntucionNivelUsuario, usuario=self.request.user.id)
+    
+    def perform_create(self, serializer):
+        if self.request.user.id != serializer.validated_data['usuario'].id:
+            raise PermissionDenied("No tienes permiso para crear una puntuación para otro usuario.")
+        serializer.save()

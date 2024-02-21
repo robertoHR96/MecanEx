@@ -15,9 +15,9 @@ urlpatterns = [
 
 routerUsuarios = DefaultRouter()
 routerUsuarios.register(
-    prefix="Usuarios", basename="Usuarios", viewset=UsuariosView
+    prefix="usuarios", basename="usuarios", viewset=UsuariosView
 )
 routerRegisterUsuarios = DefaultRouter()
 routerRegisterUsuarios.register(
-    prefix="RegisterUsuarios", basename="RegisterUsuarios", viewset=RegisterUsuariosView
+    prefix="registerUsuarios", basename="registerUsuarios", viewset=RegisterUsuariosView
 )
