@@ -1,4 +1,4 @@
-<img src=""/>
+<img src="https://raw.githubusercontent.com/robertoHR96/MecanEx/main/assets/capExample.png"/>
 # Mecanex
 
 Mecanex es una aplicación diseñada para mejorar la velocidad y precisión en la mecanografía a través de niveles progresivos. Esta aplicación ha sido creada utilizando Django para el backend y React para el frontend.
