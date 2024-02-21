@@ -26,9 +26,10 @@ Mecanex es una aplicación diseñada para mejorar la velocidad y precisión en l
 `cd ./back_mecanex`
 
   ` -- x -- pip install -r requirements.txt`
+
 3. Realiza las migraciones de la BD:
 
-Para realizar las migraciones de la base de datos debes tener configurar uan base de datos que concuerde con el apartado `DATABASES = []` alojado en el fichero `MECANEX/back_mecanex/back_mecanex/settings.py`. Puedes modificar este apartado o crear una BD con estas epecificaciones.
+Para realizar las migraciones de la base de datos debes tener configurar uan base de datos que concuerde con el apartado `DATABASES = []` alojado en el fichero `MecanEX/back_mecanex/back_mecanex/settings.py`. Puedes modificar este apartado o crear una BD con estas epecificaciones.
 
 Despues se ejecutaran los comandos para crear las tablas en dicha base datos con los siguientes dos comandos:
 
