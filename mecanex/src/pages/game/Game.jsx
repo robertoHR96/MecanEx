@@ -158,7 +158,7 @@ export const Game = () => {
       setContador(0);
       setCorriendo(false);
       setClaseTablero("tablero-fin");
-      if ((selecionTexto + 1 ) == Textos.length) {
+      if (selecionTexto + 1 == Textos.length) {
         setFinNivel(true);
       } else {
         setTimeout(() => {
@@ -188,10 +188,10 @@ export const Game = () => {
   const puntuacionTotal = () => {
     let suma = 0;
     Textos.map((texto) => {
-      suma = suma + texto.puntuacion
-    })
-    return (suma / Textos.length)
-  }
+      suma = suma + texto.puntuacion;
+    });
+    return suma / Textos.length;
+  };
 
   return (
     <>
@@ -229,13 +229,38 @@ export const Game = () => {
         </div>
         <div className="botones-navegacion-game">
           <div className="boton boton-anterior" onClick={() => pause()}>
-            Pausa
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              class="bi bi-pause-fill"
+              viewBox="0 0 16 16"
+            >
+              <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5" />
+            </svg>
           </div>
           <div
             className="boton boton-siguiente"
             onClick={() => siguienteJuego()}
           >
-            Siguiente
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              class="bi bi-chevron-double-right"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"
+              />
+            </svg>
           </div>
         </div>
         {Textos != undefined && <InfoGame Textos={Textos} />}
@@ -261,10 +286,35 @@ export const Game = () => {
         <ModalFooter>
           <div className="botones-menu-game ">
             <div className="boton boton-salir" onClick={() => navigate("/")}>
-              Salir
+              <div className="centrador">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-backspace"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M5.83 5.146a.5.5 0 0 0 0 .708L7.975 8l-2.147 2.146a.5.5 0 0 0 .707.708l2.147-2.147 2.146 2.147a.5.5 0 0 0 .707-.708L9.39 8l2.146-2.146a.5.5 0 0 0-.707-.708L8.683 7.293 6.536 5.146a.5.5 0 0 0-.707 0z" />
+                  <path d="M13.683 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1zm-7.08 1a1 1 0 0 0-.76.35L1 8l4.844 5.65a1 1 0 0 0 .759.35h7.08a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z" />
+                </svg>
+              </div>
+              <div className="centrador">Atras</div>
             </div>
             <div className="boton boton-seguir" onClick={() => pause()}>
-              Seguir jugando
+              <div className="centrador">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-play-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
+                </svg>
+              </div>
+              <div className="centrador">Seguir</div>
             </div>
           </div>
         </ModalFooter>
