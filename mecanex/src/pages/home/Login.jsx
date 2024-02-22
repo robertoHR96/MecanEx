@@ -32,12 +32,33 @@ const config = {
         password: dataLogin.password,
       })
       .then((response) => {
-        loginUser({ ...user, ...response.data });
-        navigate("/juegos");
+        getDataUser(response.data);
       })
       .catch((error) => {
         setLoginValid(true);
         setDataLogin({ email: "", password: "" });
+        console.error(error);
+      });
+  };
+
+  const getDataUser = (tokens) => {
+    axios({
+      method: "get",
+      url: "http://localhost:8000/usuarios",
+      headers: {
+        Authorization: "Bearer " + user.access,
+      },
+    })
+      .then((response) => {
+        console.log(response.data);
+        loginUser({
+          ...user,
+          ...tokens,
+          ...response.data[0],
+        });
+        navigate("/juegos");
+      })
+      .catch((error) => {
         console.error(error);
       });
   };
@@ -84,7 +105,8 @@ const config = {
           >
             <b>Iniciar sesión</b>
           </div>
-          <div className="button button-init centrador button-login"
+          <div
+            className="button button-init centrador button-login"
             onClick={() => navigate("/register")}
           >
             <b>Registrarse</b>

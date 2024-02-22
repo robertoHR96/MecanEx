@@ -15,13 +15,7 @@ export const Perfil = (props) => {
   });
 
   useEffect(() => {
-    axios({
-      method: "get",
-      url: "http://localhost:8000/Usuarios",
-      headers: {
-        Authorization: "Bearer " + user.access,
-      },
-    });
+
   }, []);
 
   return <></>;

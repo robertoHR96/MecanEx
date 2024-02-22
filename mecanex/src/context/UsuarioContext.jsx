@@ -1,18 +1,25 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext, useEffect } from "react";
 
 // Crear el contexto
 const UsuarioContext = createContext();
 
 // Crear el proveedor del contexto
 export const UsuarioProvider = ({ children }) => {
-  const [user, setUser] = useState({ infoGame : []});
+  const [user, setUser] = useState(() => {
+    const storedUser = localStorage.getItem("user");
+    return storedUser ? JSON.parse(storedUser) : { infoGame: [] };
+  });
+
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify(user));
+  }, [user]);
 
   const loginUser = (userData) => {
     setUser({ ...userData });
   };
 
   const logoutUser = () => {
-    setUser(null);
+    setUser({ infoGame: [] });
   };
 
   return (

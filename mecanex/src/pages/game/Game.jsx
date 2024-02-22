@@ -44,6 +44,7 @@ export const Game = () => {
   const [corriendo, setCorriendo] = useState(false);
   useEffect(() => {
     loginUser({
+      ...user,
       infoGame: [],
     });
   }, []);

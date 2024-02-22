@@ -26,7 +26,7 @@ class NivelView( mixins.CreateModelMixin,
     serializer_class = NivelSerializar
 
     def get_permissions(self):
-        if self.action == "list" or self.action == "retrieve" or self.action=="niveles_por_juego":
+        if self.action=="niveles_por_juego":
             permission_classes= []
         else:
             permission_classes = [IsAuthenticated, is_Admin ]
