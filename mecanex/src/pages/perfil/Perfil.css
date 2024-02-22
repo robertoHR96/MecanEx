@@ -1,0 +1,67 @@
+.perfil {
+  min-height: calc(100vh - 60px);
+  margin-top: 60px;
+  background-color: rgb(241, 244, 238);
+  padding: 20px 0px;
+  display: grid;
+  grid-template-columns: minmax(auto, 70%);
+  justify-content: center;
+  align-content: center;
+}
+@media only screen and (max-width: 750px) {
+  .perfil {
+    grid-template-columns: 1fr;
+    padding: 20px 2px;
+  }
+}
+.content-miperfil {
+}
+.data-perfil{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-content: center;
+    align-content: start;
+    row-gap: 10px;
+    padding: 20px;
+    
+}
+.data-perfil label, .data-perfil input, .data-perfil p{
+  box-sizing: border-box;
+  color: rgb(33, 37, 41);
+  cursor: default;
+  display: block;
+  
+  font-size: 16px;
+  font-weight: 400;
+  text-align: start;
+  -webkit-font-smoothing: antialiased;
+}
+.form-data-perfil{
+    display: grid;
+    grid-template-columns: minmax(auto, 540px);
+    grid-template-rows: auto;
+    justify-content: center;
+    align-content: start;
+    row-gap: 10px;
+    padding: 20px;
+}
+.form-data-perfil label{
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.form-data-perfil .centrador-doble-hor-estric{
+    margin-top: 25px;
+}
+
+.fot-perfil {
+  max-width: 100px;
+  max-height: 100px;
+  min-width: 100px;
+  min-height: 100px;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  border: 2px solid #00843d;
+  background-color: rgb(223, 238, 255);
+}

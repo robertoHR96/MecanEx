@@ -37,7 +37,6 @@
   border: 1.5px solid #005d2b25;
   display: grid;
   grid-template-rows: auto 1fr;
-  font-family: "Courier New", Courier, monospace;
   background-color: white;
 }
 .title-elemento-info-jugador {

@@ -7,6 +7,8 @@
   align-content: start;
   background-color: rgb(241, 244, 238);
   padding: 20px 0px;
+   font-family: "Courier New", Courier, monospace;
+
 }
 @media only screen and (max-width: 750px) {
   .estadisticas {
