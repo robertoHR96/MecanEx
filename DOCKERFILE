@@ -1,0 +1,13 @@
+FROM node:alpine
+
+WORKDIR /app
+
+COPY . /app
+
+ENV PATH /app/node_modules/.bin:$PATH
+
+EXPOSE 3000
+
+RUN npm install -r
+
+CMD ["npm", "start"]
